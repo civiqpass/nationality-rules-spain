@@ -1,0 +1,128 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://civiqpass.com/open-data/nationality-rules.schema.json",
+ "title": "CiviqPass: Spanish nationality rules by origin",
+ "description": "One row of the by-origin table. The by-situation table has the columns situation_code, situation_en, situation_es, situation_fr, situation_ar, years_residence, basis, applies_when, source_url, date_read.",
+ "type": "object",
+ "required": [
+  "origin_code",
+  "origin_en",
+  "years_residence",
+  "dele_a2",
+  "ccse",
+  "fee_eur",
+  "date_read"
+ ],
+ "properties": {
+  "origin_code": {
+   "description": "ISO 3166-1 alpha-3 code, lower case.",
+   "type": "string"
+  },
+  "origin_en": {
+   "description": "Name of the country of origin in English.",
+   "type": "string"
+  },
+  "origin_es": {
+   "description": "Name of the country of origin in Spanish.",
+   "type": "string"
+  },
+  "origin_fr": {
+   "description": "Name of the country of origin in French.",
+   "type": "string"
+  },
+  "origin_ar": {
+   "description": "Name of the country of origin in Arabic.",
+   "type": "string"
+  },
+  "years_residence": {
+   "description": "Years of legal, continuous residence before the application: 1, 2, 5 or 10.",
+   "type": "integer",
+   "enum": [
+    1,
+    2,
+    5,
+    10
+   ]
+  },
+  "years_basis": {
+   "description": "The article of the Código Civil behind the years.",
+   "type": "string"
+  },
+  "dele_a2": {
+   "description": "exempt when the origin is on the exemption list, required otherwise.",
+   "enum": [
+    "exempt",
+    "required"
+   ],
+   "type": "string"
+  },
+  "dele_basis": {
+   "description": "The text that sets the DELE A2 rule for this row.",
+   "type": "string"
+  },
+  "ccse": {
+   "description": "Always required for applicants over 18, in every row.",
+   "enum": [
+    "required"
+   ],
+   "type": "string"
+  },
+  "ccse_basis": {
+   "description": "The text that sets the CCSE rule.",
+   "type": "string"
+  },
+  "documents_url_en": {
+   "description": "The CiviqPass page with the documents to request for this country of origin, in English; empty when there is no page yet.",
+   "type": "string",
+   "format": "uri"
+  },
+  "documents_url_es": {
+   "description": "The same page in Spanish.",
+   "type": "string",
+   "format": "uri"
+  },
+  "documents_url_fr": {
+   "description": "The same page in French.",
+   "type": "string",
+   "format": "uri"
+  },
+  "documents_url_ar": {
+   "description": "The same page in Arabic.",
+   "type": "string",
+   "format": "uri"
+  },
+  "fee_eur": {
+   "description": "The administrative fee for the application in euros, the same for every origin.",
+   "type": "string"
+  },
+  "fee_basis": {
+   "description": "Where the fee is stated.",
+   "type": "string"
+  },
+  "years_source_url": {
+   "description": "Official URL of the source for the years.",
+   "type": "string",
+   "format": "uri"
+  },
+  "exams_source_url": {
+   "description": "Official URL of the source for the exams.",
+   "type": "string",
+   "format": "uri"
+  },
+  "fee_source_url": {
+   "description": "Official URL of the source for the fee.",
+   "type": "string",
+   "format": "uri"
+  },
+  "date_read": {
+   "description": "The day the sources of the row were last read (ISO date).",
+   "format": "date",
+   "type": "string"
+  },
+  "note_en": {
+   "description": "A caveat in English, empty when there is none.",
+   "type": "string"
+  }
+ },
+ "additionalProperties": false
+}
